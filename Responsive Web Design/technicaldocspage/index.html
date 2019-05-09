@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>TechnicalDocsPage</title>
+  
+  
+  
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+
+  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+
+<nav id="navbar">
+  <header>Basic HTML</header>
+  <ul id="nav-list">
+    <li><a class="nav-link" href="#Introduction">Introduction</a></li>
+    <li><a class="nav-link" href="#Elements">Elements</a></li>
+    <li><a class="nav-link" href="#Attributes">Attributes</a></li>
+    <li><a class="nav-link" href="#Headings">Headings</a></li>
+    <li><a class="nav-link" href="#Paragraphs">Paragraphs</a></li>
+    <li><a class="nav-link" href="#Comments">Comments</a></li>
+    <li><a class="nav-link" href="#Images">Images</a></li>
+    <li><a class="nav-link" href="#Reference">Reference</a></li>
+  </ul>
+</nav>
+
+<main id="main-doc">
+  <section class="main-section" id="Introduction">
+    <header>Introduction</header>
+    <article>
+      <p>HTML is the standard markup language for creating Web pages.</p>
+      <ul>
+        <li>HTML stands for Hyper Text Markup Language</li>
+        <li>HTML describes the structure of Web pages using markup</li>
+        <li>HTML elements are the building blocks of HTML pages</li>
+        <li>HTML elements are represented by tags</li>
+        <li>HTML tags label pieces of content such as "heading", "paragraph", "table", and so on</li>
+        <li>Browsers do not display the HTML tags, but use them to render the content of the page</li>
+      </ul>
+      
+      <pre>
+      <code>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Page Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;My First Heading&lt;/h1&gt;
+&lt;p&gt;My first paragraph.&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt; 
+      </code>
+      </pre>
+      
+      <p>Example Explained:</p>
+      <ul>
+        <li>The <code>&lt;!DOCTYPE html&gt;</code> declaration defines this document to be HTML5</li>
+        <li>The <code>&lt;html&gt;</code> element is the root element of an HTML page</li>
+        <li>The <code>&lt;head&gt;</code> element contains meta information about the document</li>
+        <li>The <code>&lt;title&gt;</code> element specifies a title for the document</li>
+        <li>The <code>&lt;body&gt;</code> element contains the visible page content</li>
+        <li>The <code>&lt;h1&gt;</code> element defines a large heading</li>
+        <li>The <code>&lt;p&gt;</code> element defines a paragraph</li>
+      </ul>
+      
+    </article>
+  </section>
+  
+    <section class="main-section" id="Elements">
+    <header>Elements</header>
+    <article>
+      <p>An HTML element usually consists of a start tag and end tag, with the content inserted in between:</p>
+      <pre><code>&lt;tagname&gt;Content goes here...&lt;/tagname&gt; </code></pre>
+      <p>The HTML element is everything from the start tag to the end tag:</p>
+      <pre><code>&lt;p&gt;My first paragraph.&lt;/p&gt; </code></pre>
+      
+      <div class="tip">
+        HTML elements with no content are called empty elements. Empty elements do not have an end tag, such as the <br> element (which indicates a line break).
+      </div>
+      
+      <h3>Empty HTML Elements</h3>
+        <p>HTML elements with no content are called empty elements.</p>
+      <p>&lt;br&gt; is an empty element without a closing tag (the &lt;br&gt; tag defines a line break):</p>
+      <pre><code> &lt;p&gt;This is a &lt;br&gt; paragraph with a line break.&lt;/p&gt;</code></pre>
+      <p>Empty elements can be "closed" in the opening tag like this: &lt;br/&gt;.</p>
+      <p>HTML5 does not require empty elements to be closed. But if you want stricter validation, or if you need to make your document readable by XML parsers, you must close all HTML elements properly.</p>
+    </article>
+  </section>
+  
+    <section class="main-section" id="Attributes">
+    <header>Attributes</header>
+    <article>
+      <p>Attributes provide additional information about HTML elements.</p>
+      <ul>
+        <li>All HTML elements can have attributes</li>
+        <li>Attributes provide additional information about an element</li>
+        <li>Attributes are always specified in the start tag</li>
+        <li>Attributes usually come in name/value pairs like: name="value"</li>
+      </ul>
+      <p>Here, a <code>title</code> attribute is added to the &lt;p&gt; element. The value of the <code>title</code> attribute will be displayed as a tooltip when you mouse over the paragraph:</p>
+      <pre><code>
+&lt;p title=&quot;I'm a tooltip&quot;&gt;
+This is a paragraph.
+&lt;/p&gt; 
+</code>
+</pre>
+    </article>
+  </section>
+  
+    <section class="main-section" id="Headings">
+    <header>Headings</header>
+    <article>
+      <p>Headings are defined with the &lt;h1&gt; to &lt;h6&gt; tags.</p>
+      <p>&lt;h1&gt; defines the most important heading. &lt;h6&gt; defines the least important heading.</p>
+      <pre>
+      <code>
+&lt;h1&gt;Heading 1&lt;/h1&gt;
+&lt;h2&gt;Heading 2&lt;/h2&gt;
+&lt;h3&gt;Heading 3&lt;/h3&gt;
+&lt;h4&gt;Heading 4&lt;/h4&gt;
+&lt;h5&gt;Heading 5&lt;/h5&gt;
+&lt;h6&gt;Heading 6&lt;/h6&gt; 
+</code>
+</pre>
+ 
+ <div class="output">
+<h1>Heading 1</h1>
+<h2>Heading 2</h2>
+<h3>Heading 3</h3>
+<h4>Heading 4</h4>
+<h5>Heading 5</h5>
+<h6>Heading 6</h6>
+      </div>
+      <div class="tip">
+        Note: Browsers automatically add some white space (a margin) before and after a heading.
+      </div>
+      <h3>Headings Are Important</h3>
+      <p>Search engines use the headings to index the structure and content of your web pages.</p>
+      <p>Users skim your pages by its headings. It is important to use headings to show the document structure.</p>
+      <p>&lt;h1&gt; headings should be used for main headings, followed by &lt;h2&gt; headings, then the less important &lt;h3&gt;, and so on.</p>
+      <div class="tip">
+        Note: Use HTML headings for headings only. Don't use headings to make text BIG or bold.
+      </div>
+    </article>
+  </section>
+  
+    <section class="main-section" id="Paragraphs">
+    <header>Paragraphs</header>
+      <p>The HTML &lt;p&gt; element defines a paragraph:<p>
+      <pre>
+      <code>
+&lt;p&gt;This is a paragraph.&lt;/p&gt;
+&lt;p&gt;This is another paragraph.&lt;/p&gt; 
+      </code>
+      </pre>
+      <div class="tip">
+        Note: Browsers automatically add some white space (a margin) before and after a paragraph.
+      </div>
+      <h3>HTML Display</h3>
+      <p>You cannot be sure how HTML will be displayed.</p>
+      <p>Large or small screens, and resized windows will create different results.</p>
+      <p>With HTML, you cannot change the output by adding extra spaces or extra lines in your HTML code.</p>
+      <p>The browser will remove any extra spaces and extra lines when the page is displayed:</p>
+      
+      <pre>
+      <code>
+&lt;p&gt;
+This paragraph
+contains a lot of lines
+in the source code,
+but the browser
+ignores it.
+&lt;/p&gt;
+
+&lt;p&gt;
+This paragraph
+contains         a lot of spaces
+in the source         code,
+but the        browser
+ignores it.
+&lt;/p&gt; 
+      </code>
+</pre>
+      <h3>HTML Line Breaks</h3>
+      <p>The HTML &lt;br&gt; element defines a line break.</p>
+      <p>Use &lt;br&gt; if you want a line break (a new line) without starting a new paragraph:</p>
+      <pre>
+      <code>
+&lt;p&gt;This is&lt;br&gt;a paragraph&lt;br&gt;with line breaks.&lt;/p&gt; 
+      </code>
+</pre>
+      <p>The &lt;br&gt; tag is an empty tag, which means that it has no end tag.</p>
+    <article>
+    </article>
+  </section>
+  
+    <section class="main-section" id="Comments">
+    <header>Comments</header>
+    <article>
+      <p>Comment tags are used to insert comments in the HTML source code.</p>
+      <p>You can add comments to your HTML source by using the following syntax:</p>
+      <pre><code>&lt;!-- Write your comments here --&gt;
+</code></pre>
+      <div class="tip">
+        Note: Comments are not displayed by the browser, but they can help document your HTML source code.
+      </div>
+      <p>With comments you can place notifications and reminders in your HTML:</p>
+            <pre><code>&lt;!-- This is a comment --&gt;
+
+&lt;p&gt;This is a paragraph.&lt;/p&gt;
+
+&lt;!-- Remember to add more information here --&gt; 
+</code></pre>
+      <p>Comments are also great for debugging HTML, because you can comment out HTML lines of code, one at a time, to search for errors.</p>
+    </article>
+  </section>
+  
+    <section class="main-section" id="Images">
+    <header>Images</header>
+    <article>
+      <p>In HTML, images are defined with the &lt;img&gt; tag.</p>
+      <p>The &lt;img&gt; tag is empty, it contains attributes only, and does not have a closing tag.</p>
+      <p>The src attribute specifies the URL (web address) of the image:</p>
+      <pre><code>&lt;img src=&quot;url&quot;&gt;</code></pre>
+      <h3>The alt Attribute</h3>
+      <p>The alt attribute provides an alternate text for an image, if the user for some reason cannot view it (because of slow connection, an error in the src attribute, or if the user uses a screen reader).</p>
+      <p>The value of the alt attribute should describe the image:</p>
+      <pre>
+      <code>
+&lt;img src=&quot;https://www.w3schools.com/images/w3schools_green.jpg&quot; alt=&quot;W3Schools.com&quot;&gt; 
+</code>
+</pre>
+      <div class="output">
+         <img src="https://www.w3schools.com/images/w3schools_green.jpg" alt="W3Schools.com"> 
+      </div>
+      <p>You can use the width and height attributes to specify the width and height of an image:</p>
+      <pre>
+      <code>&lt;img src=&quot;img_girl.jpg&quot; alt=&quot;Girl in a jacket&quot; width=&quot;500&quot; height=&quot;600&quot;&gt; </code>
+</pre>
+    </article>
+  </section>
+  
+    <section class="main-section" id="Reference">
+    <header>Reference</header>
+    <article>
+      <p id="reference-link">All the documentation in this page is taken from <a href="www.w3schools.com">w3schools</a>.</p>
+    </article>
+  </section>
+</main>
+  
+  
+
+    <script  src="js/index.js"></script>
+
+
+
+
+</body>
+
+</html>

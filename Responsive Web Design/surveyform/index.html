@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>SurveyForm</title>
+  
+  
+  
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+
+  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+
+<div id="outer-container">
+  <h1 id="title">Survey Form</h1>
+  <p id="description">Help make Audify better!</p>
+  
+  <div id="survey-form-container">
+    <form id="survey-form"  method="GET" action="https://crossorigin.me/https://freecodecamp.com">
+      
+      <div class="input-unit">
+        <div class="labels">
+      <label id="name-label" for="name">*Name</label>
+        </div>
+      <div class="input-field-container">
+      <input id="name" class="input-field" type="text" placeholder="Your name" required>
+      </div>
+      </div>
+      
+      <div class="input-unit">
+        <div class="labels">
+      <label id="email-label"
+             for="email">*E-mail</label>
+        </div>
+        <div class="input-field-container">
+      <input id="email" class="input-field"
+             type="email" placeholder="johndoe@example.com" required>
+        </div>
+      </div>
+      
+      <div class="input-unit">
+        <div class="labels">
+        <label id="number-label" class="labels"
+               for="number">*Age</label>
+        </div>
+        <div class="input-field-container">
+          <input id="number" class="input-field" type="number" placeholder="Your age" min="12" max="130" required>
+        </div>
+      </div>
+      
+      <div class="input-unit">
+        <div class="labels">
+        <label id="dropdown-label" for="dropdown">Which feature of Audify you like most?</label>
+        </div>
+        <div class="input-field-container">
+          <select id="dropdown" name="fav-feature" class="dropdown">
+            <option disabled value>Select an Option</option>
+            <option value="ui">User Interface</option>
+            <option value="diversity">Diverse Songs</option>
+            <option value="portability">Portability across multiple devices</option>
+          </select>
+        </div>
+      </div>
+      
+        
+        <div class="input-unit">
+          <div class="labels">
+          <label id="genres-label" for="genres">What genres you love most?</label>
+          </div>
+          <div class="input-field-container">
+            <ul id="genres" style="list-style: none;">
+              <li class="checkbox"><label><input name="genre" id="ad" value="1" type="checkbox" class="fav-genre">Pop</label></li>
+              <li class="checkbox"><label><input name="genre" value="2" type="checkbox" class="fav-genre">Rap</label></li>
+              <li class="checkbox"><label><input name="genre" value="1" type="checkbox" class="fav-genre">Rock</label></li>
+              <li class="checkbox"><label><input name="genre" value="1" type="checkbox" class="fav-genre">Electronic</label></li>
+              <li class="checkbox"><label><input name="genre" value="1" type="checkbox" class="fav-genre">R&B</label></li>
+              <li class="checkbox"><label><input name="genre" value="1" type="checkbox" class="fav-genre">Country</label></li>
+              <li class="checkbox"><label><input name="genre" value="1" type="checkbox" class="fav-genre">Metal</label></li>
+              <li class="checkbox"><label><input name="genre" value="1" type="checkbox" class="fav-genre">Dance</label></li>
+              <li class="checkbox"><label><input name="genre" value="1" type="checkbox" class="fav-genre">Classical</label></li>
+              <li class="checkbox"><label><input name="genre" value="1" type="checkbox" class="fav-genre">Alternative</label></li>
+            </ul>
+          </div>
+        </div>
+      
+
+              
+              <div class="input-unit">
+                <div class="labels">
+                <label id="rating-label" for="rating">How likely you will recommend Audify to your friends?</label>
+                </div>
+                  <div class="input-field-container">
+                                <ul id="rating" style="list-style: none;">
+                                                <li class="radio"><label><input name="radio-buttons" value="1" type="radio" class="ratings">Definately</label></li>
+                                  <li class="radio"><label><input name="radio-buttons" value="2" type="radio" class="ratings">Maybe</label></li>
+                                  <li class="radio"><label><input name="radio-buttons" value="3" type="radio" class="ratings">Not Sure</label></li>
+                    </ul>
+                  </div>
+              </div>
+                    
+                    <div class="input-unit">
+                      <div class="labels">
+                      <label id="comments-label" for="comments">Any comments or suggestions?</label>
+                      </div>
+                      <div class="input-field-container">
+                        <textarea id="comments" placeholder="Your comments..."></textarea>
+                      </div>
+                    </div>
+      
+          <button id="submit" type="submit">Submit</button>
+      
+    </form>
+  </div>
+  
+</div>
+  
+  
+
+    <script  src="js/index.js"></script>
+
+
+
+
+</body>
+
+</html>

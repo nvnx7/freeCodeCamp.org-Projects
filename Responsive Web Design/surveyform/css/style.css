@@ -1,0 +1,82 @@
+@import url(https://fonts.googleapis.com/css?family=Overpass);
+
+html, body {
+  text-align: center;
+  background: linear-gradient(45deg, #e86214, yellow);
+  font-family: Overpass;
+}
+
+#outer-container {
+  background: white;
+  padding: 25px;
+  margin: 50px 120px 50px 120px;
+  border-radius: 10px;
+  box-shadow: 7px 7px 10px yellow;
+}
+
+.labels {
+  display: inline-block;
+  text-align: left;
+  vertical-align: top;
+  margin: 10px 15px 0px 0px;
+}
+
+.input-unit {
+  margin: 25px;
+  background: white;
+}
+
+.input-field-container {
+  display: inline-block;
+  vertical-align: top;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.input-field {
+  width: 332px;
+  border: 3px solid orange;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+input[type="checkbox"] {
+  outline: 2px solid orange;
+  outline-radius: 5px;
+  float: left;
+  margin: 0px 15px 0px 0px;
+}
+
+input[type="radio"] {
+  float: left;
+  margin: 0px 15px 0px 0px;
+}
+
+li {
+  margin: 5px 0px 0px 0px;
+}
+
+.dropdown {
+  padding: 5px;
+  width: 250px;
+  height: 40px;
+  border: 3px solid orange;
+  border-radius: 4px;
+}
+
+#comments {
+  width: 400px;
+  border: 3px solid orange;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+#submit {
+  background-color: orange;
+  color: white;
+  width: 100px;
+  height: 40px;
+  border: 0px solid orange;
+  border-radius: 5px;
+  font-size: 1em;
+}
