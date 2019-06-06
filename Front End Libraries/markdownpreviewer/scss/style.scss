@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
+
+$toolbarColor: #111c21;
+$primaryColor: #192d35;
+$backgroundColor: #c3d6dd;
+
+$shadow: 1px 1px 10px $primaryColor;
+
+body {
+  background: $backgroundColor;
+  font-family: "Roboto Mono";
+  color: white;
+}
+
+.toolbar {
+  color: white;
+  display: flex;
+  flex-direction: row;
+  background: $toolbarColor;
+  align-items: center;
+  padding: 5px;
+  border-radius: 5px 5px 0px 0px;
+  i {
+    margin: 0px 10px 0px 5px;
+  }
+}
+
+#wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.editor-wrap {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  margin: 20px auto;
+  
+  #editor {
+    height: 300px;
+    background: $primaryColor;
+    color: white;
+    padding: 5px;
+    resize: vertical;
+    border: none;
+    border-radius: 0px 0px 5px 5px;
+    box-shadow: $shadow;
+  }
+}
+
+.preview-wrap {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  margin: 20px auto;
+  
+  #preview {
+    background: $primaryColor;
+    padding: 5px;
+    border: none;
+    border-radius: 0px 0px 5px 5px;
+  }
+}
