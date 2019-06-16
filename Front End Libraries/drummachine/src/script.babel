@@ -1,0 +1,242 @@
+const bankOne = [{
+    keyCode: 81,
+    keyTrigger: 'Q',
+    id: 'Heater-1',
+    url: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3'
+  }, {
+    keyCode: 87,
+    keyTrigger: 'W',
+    id: 'Heater-2',
+    url: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3'
+  }, {
+    keyCode: 69,
+    keyTrigger: 'E',
+    id: 'Heater-3',
+    url: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-3.mp3'
+  }, {
+    keyCode: 65,
+    keyTrigger: 'A',
+    id: 'Heater-4',
+    url: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-4_1.mp3'
+  }, {
+    keyCode: 83,
+    keyTrigger: 'S',
+    id: 'Clap',
+    url: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-6.mp3'
+  }, {
+    keyCode: 68,
+    keyTrigger: 'D',
+    id: 'Open-HH',
+    url: 'https://s3.amazonaws.com/freecodecamp/drums/Dsc_Oh.mp3'
+  }, {
+    keyCode: 90,
+    keyTrigger: 'Z',
+    id: "Kick-n'-Hat",
+    url: 'https://s3.amazonaws.com/freecodecamp/drums/Kick_n_Hat.mp3'
+  }, {
+    keyCode: 88,
+    keyTrigger: 'X',
+    id: 'Kick',
+    url: 'https://s3.amazonaws.com/freecodecamp/drums/RP4_KICK_1.mp3'
+  }, {
+    keyCode: 67,
+    keyTrigger: 'C',
+    id: 'Closed-HH',
+    url: 'https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3'
+  },
+];
+
+const activeStyle = {
+  backgroundColor: '#6DD5FA',
+  boxShadow: "0 3px #6DD5FA",
+  marginTop: 13
+}
+
+const inactiveStyle = {
+  backgroundColor: 'white',
+  marginTop: 10,
+  boxShadow: "3px 3px 5px black"
+}
+
+class DrumPad extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      padStyle: inactiveStyle
+    }
+    this.playSound = this.playSound.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
+    this.activatePad = this.activatePad.bind(this);
+  }
+  
+  componentDidMount() {
+    document.addEventListener("keydown", this.handleKeyPress);
+  }
+  
+  componentWillUnmount() {
+    document.removeEventListener("keydown", this.handleKeyPress);
+  }
+  
+  activatePad() {
+    if (this.props.power) {
+      this.state.padStyle.backgroundColor === "#6DD5FA" ?
+        this.setState({
+          padStyle: inactiveStyle
+      }) :
+        this.setState({
+          padStyle: activeStyle
+      });
+    } else {
+      
+    }
+  }
+  
+  playSound(event) {
+    const sound = document.getElementById(this.props.keyTrigger);
+    sound.currentTime = 0;
+    sound.play();
+    this.activatePad();
+    setTimeout(() => this.activatePad(), 100);
+    this.props.updateDisplay(this.props.clipId);
+    //setTimeout(() => this);
+  }
+  
+  handleKeyPress(event) {
+    if (event.keyCode === this.props.keyCode) {
+      this.playSound();
+    }
+  }
+  
+  render() {
+    return (
+      <div id={this.props.clipId}
+        className="drum-pad"
+        onClick={this.playSound}
+        style={this.state.padStyle}>
+        <audio className="clip" id={this.props.keyTrigger} src={this.props.clip} />
+        {this.props.keyTrigger}
+      </div>
+    );
+  }
+}
+
+class PadBank extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  
+  render() {
+    
+    let padBank = this.props.power ?
+    this.props.padBank.map((drumPad, i, padBankArray) => {
+      return (
+        <DrumPad
+           clipId={padBankArray[i].id}
+           clip={padBankArray[i].url}
+           keyTrigger={padBankArray[i].keyTrigger}
+           keyCode={padBankArray[i].keyCode}
+           updateDisplay={this.props.updateDisplay}
+           power={this.props.power}/>
+      );
+    }) :
+    this.props.padBank.map((drumPad, i, padBankArray) => {
+      return (
+        <DrumPad
+           clipId={padBankArray[i].id}
+           clip="#"
+           keyTrigger={padBankArray[i].keyTrigger}
+           keyCode={padBankArray[i].keyCode}
+           updateDisplay={this.props.updateDisplay}
+           power={this.props.power}/>
+      );
+    });
+    
+    return (
+      <div className="pad-bank" >
+        {padBank}
+      </div>
+    );
+  }
+}
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      padBank: bankOne,
+      power: true,
+      display: String.fromCharCode(160),
+      sliderVal: 0.3
+    };
+    this.adjustVolume = this.adjustVolume.bind(this);
+    this.clearDisplay = this.clearDisplay.bind(this);
+    this.displayClipName = this.displayClipName.bind(this);
+    this.powerControl = this.powerControl.bind(this);
+  }
+  
+  adjustVolume(event) {
+    if(this.state.power) {
+      this.setState({
+        sliderVal: event.target.value,
+        display: "Volume: " + Math.round(event.target.value*100)
+      });
+    
+      setTimeout(() => this.clearDisplay(), 1000);
+    }
+  }
+  
+  clearDisplay() {
+    this.setState({
+      display: String.fromCharCode(160)
+    });
+  }
+  
+  displayClipName(name) {
+    if (this.state.power){
+      this.setState({
+        display: name
+      });
+    }
+  }
+  
+  powerControl() {
+    this.setState({
+      power: !this.state.power,
+      display: String.fromCharCode(160)
+    });
+  }
+  
+  render() {
+    const clips = document.getElementsByClassName("clip");
+    for (let i=0; i<clips.length; i++) {
+      clips[i].volume = this.state.sliderVal;
+    }
+    
+    return (
+      <div id="drum-machine" className="inner-container">
+        <PadBank
+          padBank={this.state.padBank}
+          power={this.state.power}
+          clipVolume={this.state.sliderVal}
+          updateDisplay={this.displayClipName} />
+        
+        <div className="controls-container">
+          <label className="switch">
+            <input type="checkbox" onChange={this.powerControl}></input>
+            <span className="slider"></span>
+          </label>
+          
+          <div id="display-container">
+            <p id="display">{this.state.display}</p>
+          </div>
+          
+          <div className="volume-slider">
+            <input className="slider" type="range" min="0" max="1" step="0.01" value={this.state.sliderVal} onChange={this.adjustVolume} />
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(<App />, document.getElementById('root'));
