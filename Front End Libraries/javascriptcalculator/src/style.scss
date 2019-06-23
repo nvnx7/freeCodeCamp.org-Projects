@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css?family=Rubik');
+
+$calculator-bg: #cccccc;
+$operators-bg: #e6e6e6;
+$numbers-bg: #f2f2f2;
+
+$numbers-hover-bg: #e6e6e6;
+$operators-hover-bg: #ff8c1a;
+$clear-hover-bg: #ff471a;
+
+html, body {
+  height: 100%;
+  font-family: "Rubik";
+  background: #effbff;
+}
+
+#app {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.calculator {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: $calculator-bg;
+  padding: 5px;
+  
+  .formula-screen {
+    width: 340px;
+    min-height: 40px;
+    height: auto;
+    text-align: right;
+    overflow-wrap: break-word;
+    font-size: 0.9em;
+  }
+  
+  .output-screen {
+    height: auto;
+    text-align: right;
+    padding: 5px 0px 5px 5px;
+    font-size: 1.1em;
+    background: $numbers-bg;
+    margin: 5px 0px;
+  }
+  
+  #buttons-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, auto);
+    grid-gap: 1.5px;
+    
+    button {
+      padding: 25px 35px;
+      border: none;
+      font-family: "Rubik";
+      font-size: 1.1em;
+    }
+    
+    .digits {
+      background: $numbers-bg;
+    }
+    
+    button.digits:hover {
+      background: $numbers-hover-bg;
+    }
+    
+    .operators, .decimal, .calculation {
+      background: $operators-bg;
+    }
+    
+    button.operators:hover, button.decimal:hover, button.calculation:hover {
+      background: $operators-hover-bg;
+      color: white;
+    }
+    
+    #clear, #zero{
+      grid-column: 1 / 3;
+    }
+    
+    button#clear:hover {
+      background: #ff3300;
+      color: white;
+    }
+    
+    #equals {
+      grid-row: 4 / 6;
+      grid-column: 4 / 5;
+    }
+  }
+}

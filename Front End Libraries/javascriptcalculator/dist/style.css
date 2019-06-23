@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css?family=Rubik");
+html, body {
+  height: 100%;
+  font-family: "Rubik";
+  background: #effbff;
+}
+
+#app {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.calculator {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #cccccc;
+  padding: 5px;
+}
+.calculator .formula-screen {
+  width: 340px;
+  min-height: 40px;
+  height: auto;
+  text-align: right;
+  overflow-wrap: break-word;
+  font-size: 0.9em;
+}
+.calculator .output-screen {
+  height: auto;
+  text-align: right;
+  padding: 5px 0px 5px 5px;
+  font-size: 1.1em;
+  background: #f2f2f2;
+  margin: 5px 0px;
+}
+.calculator #buttons-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, auto);
+  grid-gap: 1.5px;
+}
+.calculator #buttons-container button {
+  padding: 25px 35px;
+  border: none;
+  font-family: "Rubik";
+  font-size: 1.1em;
+}
+.calculator #buttons-container .digits {
+  background: #f2f2f2;
+}
+.calculator #buttons-container button.digits:hover {
+  background: #e6e6e6;
+}
+.calculator #buttons-container .operators, .calculator #buttons-container .decimal, .calculator #buttons-container .calculation {
+  background: #e6e6e6;
+}
+.calculator #buttons-container button.operators:hover, .calculator #buttons-container button.decimal:hover, .calculator #buttons-container button.calculation:hover {
+  background: #ff8c1a;
+  color: white;
+}
+.calculator #buttons-container #clear, .calculator #buttons-container #zero {
+  grid-column: 1 / 3;
+}
+.calculator #buttons-container button#clear:hover {
+  background: #ff3300;
+  color: white;
+}
+.calculator #buttons-container #equals {
+  grid-row: 4 / 6;
+  grid-column: 4 / 5;
+}
