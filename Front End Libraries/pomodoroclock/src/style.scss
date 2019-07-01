@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+$body-color: #000d14;
+
+html, body {
+  height: 100%;
+  font-family: "Roboto";
+  font-weight: bold;
+  background: $body-color;
+  color: white;
+}
+
+#app {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.timer-container {
+  text-align: center;
+  font-size: 1.6em;
+  
+  .length-controls-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+    .length-control-container {
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      align-items: center;
+      
+      .length-control {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}
+
+button {
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+  display: inline-block;
+  padding: 10px;
+  margin: 10px;
+  color: white;
+}
+
+.timer-wrapper {
+  .timer-box {
+    padding: 40px 100px;
+    border: 15px solid white;
+    border-radius: 25px;
+  
+    .timer-label {
+      font-size: 2em;
+    }
+  
+    .time-left {
+      font-size: 7em;
+    }
+  }
+  
+  @media only screen and (max-width: 768px) {
+    
+    .length-controls-container {
+        font-size: 1em;
+    }
+    
+    .timer-box {
+      padding: 30px 10px;
+      border: 8px solid white;
+      border-radius: 25px;
+  
+      .timer-label {
+        font-size: 1em;
+      }
+  
+      .time-left {
+        font-size: 3.5em;
+      }
+    }
+  }
+  
+  .timer-controls {
+    display: flex;
+    justify-content: center;
+    
+    #start_stop {
+      margin-right: 50px;
+    }
+    
+    #reset {
+      margin-left: 50px;
+    }
+  }
+
+}
