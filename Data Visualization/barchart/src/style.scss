@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+
+$background: #c2f0c2;
+$barColor: #196619;
+$barHoverColor: #c2f0c2;
+
+html, body {
+  height: 100%;
+  font-family: 'Quicksand';
+  background: $background;
+}
+
+.wrapper {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    width: 1050px;
+    height: 550px;
+    background: #fff;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 1px 10px;
+    
+    .visHolder {
+      position: absolute;
+    }
+  }
+}
+
+svg {
+  background-color: #fff;
+  
+  .bar {
+    fill: $barColor;
+    stroke: #fff;
+    stroke-width: 0.3;
+  }
+  
+  .bar:hover {
+    fill: $barHoverColor;
+  }
+}
+
+#tooltip {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background: $background;
+  border-radius: 3px;
+  padding: 5px 10px;
+  position: absolute;
+  // top: 300px;
+}

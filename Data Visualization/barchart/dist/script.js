@@ -1,0 +1,96 @@
+const margin = 100;
+const width = 1050;
+const height = 550;
+const barWidth = width / 275;
+
+const svg = d3.select('.visHolder').
+append('svg').
+attr('width', width).
+attr('height', height);
+
+d3.json('https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/GDP-data.json', function (error, data) {
+
+  const dataset = data.data;
+  const yearsData = dataset.map(item => {
+    return new Date(item[0]);
+  });
+
+  const gdpData = dataset.map(item => {
+    return item[1];
+  });
+
+
+  const xScale = d3.scaleTime().
+  domain([d3.min(yearsData), d3.max(yearsData)]).
+  range([margin, width - margin]);
+
+  const yScale = d3.scaleLinear().
+  domain([0, d3.max(gdpData)]).
+  range([height - margin, margin]);
+
+  const xAxis = d3.axisBottom().
+  scale(xScale);
+
+  const yAxis = d3.axisLeft().
+  scale(yScale);
+
+  svg.append('g').
+  attr('id', 'x-axis').
+  attr("transform", "translate(0," + (height - margin) + ")").
+  call(xAxis);
+
+  svg.append('g').
+  attr('id', 'y-axis').
+  attr("transform", "translate(" + margin + " , 0)").
+  call(yAxis);
+
+  svg.append('text').
+  text('US GDP').
+  attr('x', 440).
+  attr('y', 70).
+  attr('font-size', 30);
+
+  svg.append('text').
+  text('Gross Domestic Product').
+  attr('transform', 'rotate(-90)').
+  attr('x', -340).
+  attr('y', 40);
+
+  svg.append('text').
+  text('Year').
+  attr('x', 500).
+  attr('y', 500);
+
+  var tooltip = d3.select('.visHolder').
+  append('div').
+  attr('id', 'tooltip').
+  style('opacity', 0.3);
+
+  d3.select('svg').selectAll('rect').
+  data(dataset).
+  enter().
+  append('rect').
+  attr('data-date', (d, i) => d[0]).
+  attr('data-gdp', (d, i) => d[1]).
+  attr('class', 'bar').
+  attr('width', barWidth).
+  attr('height', (d, i) => height - margin - yScale(gdpData[i])).
+  attr('x', (d, i) => xScale(yearsData[i])).
+  attr('y', (d, i) => yScale(gdpData[i])).
+  on('mouseover', (d, i) => {
+    tooltip.transition().
+    duration(100).
+    style('opacity', 0.8);
+
+
+    tooltip.html('Year ' + d[0].substring(0, 4) + '<br>' + '$' + d[1] + " Billion").
+    attr('data-date', d[0]).
+    style('left', i * barWidth - i * 0.45 + 'px').
+    style('top', yScale(gdpData[i]) - 60 + 'px');
+  }).
+  on('mouseout', (d, i) => {
+    tooltip.transition().
+    duration(100).
+    style('opacity', 0);
+  });
+});

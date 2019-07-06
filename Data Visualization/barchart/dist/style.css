@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css?family=Quicksand");
+html, body {
+  height: 100%;
+  font-family: 'Quicksand';
+  background: #c2f0c2;
+}
+
+.wrapper {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.wrapper .container {
+  display: flex;
+  flex-direction: column;
+  width: 1050px;
+  height: 550px;
+  background: #fff;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 1px 1px 10px;
+}
+.wrapper .container .visHolder {
+  position: absolute;
+}
+
+svg {
+  background-color: #fff;
+}
+svg .bar {
+  fill: #196619;
+  stroke: #fff;
+  stroke-width: 0.3;
+}
+svg .bar:hover {
+  fill: #c2f0c2;
+}
+
+#tooltip {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background: #c2f0c2;
+  border-radius: 3px;
+  padding: 5px 10px;
+  position: absolute;
+}
