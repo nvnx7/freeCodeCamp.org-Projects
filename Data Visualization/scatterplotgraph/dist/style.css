@@ -1,0 +1,45 @@
+@import url("https://fonts.googleapis.com/css?family=Ubuntu");
+html, body {
+  height: 100%;
+  font-family: 'Ubuntu';
+  background: #e6f9ff;
+}
+
+.wrapper {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.wrapper .container {
+  display: flex;
+  flex-direction: column;
+  width: 1000px;
+  height: 600px;
+  background: #fff;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 1px 1px 10px;
+}
+.wrapper .container .visHolder {
+  position: absolute;
+}
+.wrapper .container .visHolder .svg .dot {
+  stroke: #000;
+  stroke-width: 0.8px;
+  opacity: 0.8;
+}
+.wrapper .container .visHolder .svg #legend {
+  background: #000;
+}
+.wrapper .container .visHolder .svg .title {
+  font-size: 1.3em;
+}
+.wrapper .container .visHolder .tooltip {
+  display: flex;
+  background: #e6faff;
+  border-radius: 3px;
+  padding: 5px 10px;
+  position: absolute;
+  font-size: 0.8em;
+}
