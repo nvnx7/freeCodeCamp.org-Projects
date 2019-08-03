@@ -1,0 +1,31 @@
+/****** Main Styling ******/
+
+body {
+	font-family: 'Roboto', sans-serif;
+	font-size: 16px;
+	color: #222;
+	background-color: #FaFaFa;
+	text-align: center;
+	line-height: 1.4em;
+}
+
+.container {;
+	padding: 0;
+	margin-top: 40px;
+}
+
+#reqBtn {
+  margin-top: 60px;
+  padding: 20px;
+  font-weight: bold;
+  border: solid #000 2px;
+  border-radius: 5px;
+  color: #fff;
+  background: #000;
+  cursor: pointer;
+}
+
+#reqBtn:hover {
+  color: #000;
+  background: #fff;
+}
