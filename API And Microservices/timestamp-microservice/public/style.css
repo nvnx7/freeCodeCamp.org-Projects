@@ -1,0 +1,64 @@
+/****** Main Styling ******/
+
+body {
+	font-family: 'Roboto', sans-serif;
+	font-size: 16px;
+	color: #222;
+	background-color: #FaFaFa;
+	text-align: center;
+	line-height: 1.4em;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+	padding: 0;
+	margin-top: 40px;
+}
+
+.dateForm {
+  display: inline;
+  flex-direction: column;
+  color: white;
+  background: black;
+  margin: auto;
+  padding: 40px;
+}
+
+.radioButtons > label {
+  margin: 10px;
+}
+
+.inputOptions {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-top: 20px;
+  padding: 10px;
+  text-align:center;
+}
+
+#dateOpt {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 25%;
+}
+
+#milliOpt {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 25%;
+}
+
+#submitBtn {
+  margin-top: 50px;
+  border: none;
+  background: white;
+  color: black;
+  cursor: pointer;
+  padding: 10px;
+}

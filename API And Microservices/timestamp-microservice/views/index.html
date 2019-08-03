@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html>
+
+   <head>
+      <title>Timestamp Microservice</title>
+      <link rel="shortcut icon" href="https://cdn.hyperdev.com/us-east-1%3A52a203ff-088b-420f-81be-45bf559d01b1%2Ffavicon.ico" type="image/x-icon"/>
+      <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+      <link href="style.css" rel="stylesheet" type="text/css">
+      <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+   </head>
+
+  <script>
+
+    $(document).ready(function(){
+      $("#milliOpt").hide();
+
+      $("#dateOptRadio").click(function() {
+        $("#milliOpt").hide();
+        $("#dateOpt").show();
+      });
+
+      $("#milliOptRadio").click(function() {
+        $("#dateOpt").hide();
+        $("#milliOpt").show();
+      });
+
+      $("#submitBtn").click(function() {
+        var url = window.location.href + "api/timestamp/";
+        if($('#dateOptRadio').is(':checked')) {
+          var date = new Date($('#dateInput').val());
+          day = date.getDate();
+          month = date.getMonth() + 1;
+          year = date.getFullYear();
+
+          if (!isNaN(day)) {
+            url = url.concat([year, month, day].join('-'));
+          }
+        } else {
+          var milliSec = $("#milliInput").val();
+          url = url.concat(milliSec);
+        }
+        window.open(url);
+      });
+
+    });
+
+  </script>
+
+   <body>
+
+      <div class="container">
+        <h2>Timestamp Microservice</h2>
+        <form class="dateForm">
+          <div class="radioButtons">
+            <label>
+              Calender
+              <input id="dateOptRadio" type="radio" name="dateOption" value="calender" checked>
+            </label>
+            <label>
+              Milliseconds
+              <input id="milliOptRadio" type="radio" name="dateOption" value="millisec">
+            </label>
+          </div>
+
+          <div class="inputOptions">
+            <label id="dateOpt">
+              Date:
+              <input id="dateInput" type="date">
+            </label>
+            <label id="milliOpt">
+              Milliseconds:
+              <input id="milliInput" type="text">
+            </label>
+          </div>
+
+          <input id="submitBtn" type="button" value="Submit">
+        </form>
+      </div>
+   </body>
+
+</html>
