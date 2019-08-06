@@ -1,0 +1,56 @@
+/****** Main Styling ******/
+
+body {
+	font-family: 'Roboto', sans-serif;
+	font-size: 16px;
+	color: #222;
+	background-color: #ECF0F1;
+	text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+	padding: 0;
+	margin-top: 40px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#inputfield {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+input#button {
+  margin: 20px;
+  padding: 10px 15px;
+  background: #000;
+  color: #fff;
+  border: 2px solid #000;
+  cursor: pointer;
+}
+
+input#button:hover {
+  color: #000;
+  background: #fff;
+}
+
+.view {
+  position:relative;
+  margin: auto;
+  margin-top: 40px;
+  border: 2px  solid  #000;
+  padding: 60px 40px;
+  width: 60%;
+  min-width: 400px;
+}
