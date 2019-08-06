@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+   <head>
+      <title>Exercise Tracker | Free Code Camp</title>
+      <link rel="shortcut icon" href="https://cdn.hyperdev.com/us-east-1%3A52a203ff-088b-420f-81be-45bf559d01b1%2Ffavicon.ico" type="image/x-icon"/>
+      <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+      <link href="style.css" rel="stylesheet" type="text/css">
+   </head>
+
+   <body>
+      <div class="container">
+         <h1>Exercise tracker</h1>
+          <form action="/api/exercise/new-user" method="post">
+            <h3>Create a New User</h3>
+            <label for="username">
+              Username*:
+              <input id="uname" type="text" name="username" required>
+            </label>
+            <input type="submit" value="Submit">
+          </form>
+        <div class="subcontainer">
+          <form action="/api/exercise/add" method="post">
+            <h3>Add exercises</h3>
+            <label for="userId">
+              UserId*:
+              <input id="uid" type="text" name="userId" required>
+            </label>
+            <label for="description">
+              Description*:
+              <input id="desc" type="text" name="description" required>
+            </label>
+            <label for="duration">
+            Duration(min.)*:
+            <input id="dur" type="text" name="duration" required>
+            </label>
+            <label for="date">
+            Date:
+            <input id="dat" type="date" name="date">
+            </label>
+            <input type="submit" value="Submit">
+          </form>
+
+          <form action="/api/exercise/log/" method="post">
+            <h3>Get exercises</h3>
+            <label for="userId">
+              UserId*:
+              <input id="userid" type="text" name="userId" required>
+            </label>
+            <label for="from">
+              From:
+              <input id="from" type="date" name="from" placeholder="from date">
+            </label>
+            <label for="to">
+              To:
+              <input id="to" type="date" name="to" placeholder="to date">
+            </label>
+            <label for="limit">
+              Limit
+              <input id="limit" type="number" name="limit" min="0">
+            </label>
+            <input type="submit" value="Submit">
+          </form>
+        </div>
+      </div>
+   </body>
+
+</html>
