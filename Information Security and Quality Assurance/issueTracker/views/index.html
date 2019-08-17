@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Welcome to HyperDev!</title>
+    <meta name="description" content="A cool thing made with HyperDev">
+    <link id="favicon" rel="icon" href="https://hyperdev.com/favicon-app.ico" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/public/project_style.css">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>
+        Projects
+      </h1>
+      <div class="projectFormContainer">
+        <form id="projectForm">
+          <label for="project_name">
+            <center>Add Project</center><br>
+            <input type="text" name="project_name" placeholder="project title"
+                   minlength="1" maxlength="50" required><br>
+          </label>
+          <input type="submit" value="Submit">
+        </form>
+      </div>
+      <div class="projectsList">
+
+      </div>
+    </div>
+    <!-- Your web-app is https, so your scripts need to be too -->
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"
+            integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
+            crossorigin="anonymous"></script>
+    <script>
+      $(function() {
+
+        $.ajax({
+          url: '/api/projects',
+          type: 'get',
+          data: 'json',
+          success: (data) => {
+            data.forEach((project) => {
+              $(".projectsList")
+                .append('<div class="project">' +
+                          '<div class="projectName">' +
+                            project.project_name +
+                          '</div>' +
+                          '<div class="issueCount">' +
+                            project.issues.length + ' Issue(s)' +
+                          '</div>' +
+                          '<a class="issuesLink" href="' + project.project_name + '">See Issues</a>' +
+                        '</div>');
+            });
+          }
+        });
+
+        $('#projectForm').submit((e) => {
+          $.ajax({
+            url: '/api/projects',
+            type: 'post',
+            data: $('#projectForm').serialize(),
+            success: (data) => {
+              alert("Project Added. You can now add issues to it.")
+              window.location.reload(true);
+            }
+          });
+          e.preventDefault();
+        });
+
+      });
+   </script>
+  </body>
+</html>
