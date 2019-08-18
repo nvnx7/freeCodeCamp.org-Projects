@@ -1,0 +1,94 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  padding: 10px;
+  font-family: "Open Sans"
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#addBookFormContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #f2f2f2;
+  padding: 20px;
+  border-radius: 5px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+input[name='title'], input[name='author'] {
+  width: 300px;
+  padding: 5px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+#addBookForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#deleteAllButton {
+  background: #f00;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #000;
+  margin-top: 20px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.8em;
+  cursor: pointer;
+}
+
+#booksList {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 30px;
+}
+
+.book {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #000;
+  padding: 20px 40px;
+  border-radius: 5px;
+}
+
+.bookName {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.actionButtons {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 10px;
+}
+
+.seeBook, .deleteBook {
+  background: #000;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #000;
+  margin-top: 20px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.8em;
+  cursor: pointer;
+}

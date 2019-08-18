@@ -1,0 +1,72 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  padding: 10px;
+  font-family: "Open Sans"
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#author {
+  margin-top: 40px;
+}
+
+#authorName {
+  font-weight: bold;
+}
+
+#commentCountContainer {
+  margin-top: 20px;
+}
+
+#commentCount {
+  font-weight: bold;
+}
+
+#commentFormContainer {
+  width: 80%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background: #f2f2f2;
+  padding: 30px;
+  border-radius: 5px;
+}
+
+#commentForm {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+
+input[name="comment"] {
+  width: 90%;
+  padding: 5px;
+  border-radius: 5px;
+  margin: 5px 0px;
+}
+
+#comments {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.comment {
+  background: #f2f2f2;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 0.8em;
+}

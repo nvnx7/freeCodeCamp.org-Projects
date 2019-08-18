@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <title>FCC ISQA Project - Personal Library</title>
+    <meta name="description" content="A cool thing made with HyperDev">
+    <link id="favicon" rel="icon" href="https://hyperdev.com/favicon-app.ico" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/public/style.css">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" />
+  </head>
+  <body>
+    <div class="container">
+      <h1 id="title">
+        Personal Library
+      </h1>
+
+      <div id="addBookFormContainer">
+        <h3>Add Book:</h3>
+        <form id="addBookForm">
+          <input type="text" id="bookTitle" name="title" placeholder="New Book Title">
+          <input type="text" id="bookAuthor" name="author" placeholder="New Book Author">
+          <button type="submit" value="Submit">Submit New Book!</button>
+        </form>
+      </div>
+
+      <button id="deleteAllButton">
+        DELETE ALL BOOKS
+      </button>
+
+      <div id="booksList">
+
+      </div>
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"
+            integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
+            crossorigin="anonymous"></script>
+    <script src="/public/client.js"></script>
+    <script>
+      /*
+      *  For #sampleposting to update form action url to test inputs book id
+      */
+      $(function() {
+       $('#commentTest').submit(function(){
+         var id = $('#idinputtest').val();
+         $(this).attr('action', "/api/books/" + id);
+       });
+
+      $('#deleteTest').submit(function() {
+        var id = $('#iddeletetest').val();
+        $(this).attr('action', "/api/books/" + id);
+      });
+
+      });
+   </script>
+  </body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Book Info</title>
+    <meta name="description" content="A cool thing made with HyperDev">
+    <link id="favicon" rel="icon" href="https://hyperdev.com/favicon-app.ico" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/public/book_info_style.css">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" />
+  </head>
+  <body>
+
+    <div class="container">
+      <h1 id="bookTitle">
+        Book
+      </h1>
+
+      <div id="author">
+        Written By,
+      </div>
+
+      <div id="authorName">
+
+      </div>
+
+      <div id="commentCountContainer">
+        Comments: <span id="commentCount"></span>
+      </div>
+
+      <div id="commentFormContainer">
+      <form action="" method="post" id="commentForm">
+        <h4>Add Comment:</h4>
+        <input type="text" name="comment" value="" placeholder="comment" required><br>
+        <input type="submit" value="Submit">
+      </form>
+      </div>
+
+      <div id="comments">
+
+      </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"
+        integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
+        crossorigin="anonymous"></script>
+
+    <script>
+      $(function() {
+        var currentBookId = window.location.pathname.replace(/\//g, "");
+
+        var url = "/api/books/" + currentBookId;
+        $.ajax({
+          type: 'GET',
+          url: url,
+          data: 'json',
+          success: (book) => {
+            $('#bookTitle').text(book.title);
+            $('#authorName').text(book.author);
+            $('#commentCount').text(book.commentcount);
+            book.comments.forEach((comment) => {
+              $('#comments').append(
+                '<div class="comment">' +
+                comment +
+                '</div>'
+              );
+            });
+          }
+        });
+
+        $('#commentForm').submit((e) => {
+          $.ajax({
+            url: url,
+            type: 'POST',
+            data: $('#commentForm').serialize(),
+            success: (data) => {
+              alert("Comment Added.");
+              window.location.reload(true);
+            }
+          });
+          e.preventDefault();
+        });
+
+      });
+    </script>
+  </body>
+</html>
