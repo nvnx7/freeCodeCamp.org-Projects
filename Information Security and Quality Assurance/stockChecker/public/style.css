@@ -1,0 +1,111 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  padding: 10px;
+  font-family: "Roboto";
+  background: #001a33;
+  color: #fff;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#title {
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+#formsContainer {
+  display: flex;
+}
+
+@media screen and (max-width: 768px) {
+  #formsContainer {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+#singleStockForm, #twoStockForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 40px;
+  padding: 30px 60px;
+  background: #e6f2ff;
+  box-shadow: 5px 5px 1px #fff;
+  color: #001a33;
+}
+
+#singleStockForm > *, #twoStockForm > * {
+  margin: 5px;
+}
+
+input[type='text'] {
+  width: 200px;
+  padding: 5px;
+  text-align: center;
+  border: 1px solid #001a33;
+}
+
+button[type='submit'] {
+  padding: 5px 10px;
+  margin-top: 20px;
+  color: #fff;
+  background: #001a33;
+  border: 2px solid #001a33;
+}
+
+button[type='submit']:hover {
+  color: #001a33;
+  background: #fff;
+  cursor: pointer;
+}
+
+hr {
+  width: 80%;
+  border: 1px solid #fff;
+  margin-top: 10px;
+}
+
+#resultContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.stockData {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+  padding: 30px 60px;
+  background: #e6f2ff;
+  box-shadow: 5px 5px 1px #fff;
+  color: #001a33;
+}
+
+.stockData > * {
+  margin: 5px;
+}
+
+.ticker, .price, .likes {
+  font-weight: bold;
+}
+
+.ticker {
+  font-size: 1.2em;
+  text-decoration: underline;
+}
