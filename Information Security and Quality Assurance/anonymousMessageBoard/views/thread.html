@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Welcome to HyperDev!</title>
+    <meta name="description" content="A cool thing made with HyperDev">
+    <link id="favicon" rel="icon" href="https://hyperdev.com/favicon-app.ico" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/public/threadStyle.css">
+    <link href="https://fonts.googleapis.com/css?family=Cabin&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+
+      <div id="threadDates">
+        <div id="threadBumpedOn">
+          Last Activity <span id="threadBumpedOnDate"></span>
+        </div>
+
+        <div id="threadCreatedOn">
+          Created On <span id="threadCreatedOnDate"></span>
+        </div>
+      </div>
+
+      <div id="threadText">
+      </div>
+
+      <div id="deleteReplyModal">
+        <div id="deleteReplyFormContainer">
+          <button id="closeFormButton">
+            Close
+          </button>
+          <h4>
+            Delete reply
+          </h4>
+          <form id="deleteReplyForm" method="DELETE">
+            <input type="text" name="delete_password" placeholder="delete password" required>
+            <input type="hidden" name="thread_id">
+            <input type="hidden" name="reply_id">
+            <input type="submit" value="Confirm Delete">
+          </form>
+        </div>
+      </div>
+
+      <div id="replies">
+        <span id="repliesCount"></span> Reply(s)
+      </div>
+
+      <div id="repliesList">
+
+      </div>
+
+      <div id="newReplyFormContainer">
+        <h4>
+          New Reply
+        </h4>
+        <form id="newReplyForm" method="POST">
+          <textarea id="inputReplyText" name="text" cols="50" placeholder="your reply..." required></textarea>
+          <input type="text" placeholder="delete password" name="delete_password" required>
+          <input id="inputThreadId" name="thread_id" type="hidden">
+          <input type="submit" value="POST">
+        </form>
+      </div>
+
+    </div>
+    <!-- Your web-app is https, so your scripts need to be too -->
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"
+            integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
+            crossorigin="anonymous"></script>
+
+    <script src="/public/thread.js"></script>
+  </body>
+</html>

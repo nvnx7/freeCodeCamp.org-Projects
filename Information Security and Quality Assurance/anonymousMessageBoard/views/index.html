@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Welcome to HyperDev!</title>
+    <meta name="description" content="A cool thing made with HyperDev">
+    <link id="favicon" rel="icon" href="https://hyperdev.com/favicon-app.ico" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./public/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Cabin&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <h1 id="title">
+        Anonymous Message Board
+      </h1>
+
+      <div id="addBoardFormContainer">
+        <h4>
+          Add New Board
+        </h4>
+        <form id="addBoardForm" method="POST">
+          <input type="text" placeholder="board" id="newBoardTitle" name="board_title" required>
+          <input type="text" placeholder="password to delete" name="delete_password" required>
+          <input type="submit" value="Submit">
+        </form>
+      </div>
+
+      <h2 id="subTitle">
+        Message Boards
+      </h2>
+
+      <div id="deleteBoardModal">
+        <div id="deleteBoardFormContainer">
+          <button id="closeFormButton">
+            Close
+          </button>
+          <h4>
+            Delete thread
+          </h4>
+          <form id="deleteBoardForm" method="DELETE">
+            <input type="text" name="delete_password" placeholder="delete password" required>
+            <input type="hidden" name="board_id">
+            <input type="submit" value="Confirm Delete">
+          </form>
+        </div>
+      </div>
+
+      <div id="boardsList">
+
+      </div>
+    </div>
+    <!-- Your web-app is https, so your scripts need to be too -->
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"
+            integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
+            crossorigin="anonymous"></script>
+
+    <script src="public/client.js"></script>
+  </body>
+</html>

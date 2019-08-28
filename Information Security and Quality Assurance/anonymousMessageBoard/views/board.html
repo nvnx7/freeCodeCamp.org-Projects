@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Welcome to HyperDev!</title>
+    <meta name="description" content="A cool thing made with HyperDev">
+    <link id="favicon" rel="icon" href="https://hyperdev.com/favicon-app.ico" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/public/boardStyle.css">
+    <link href="https://fonts.googleapis.com/css?family=Cabin&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+
+      <header>
+        <h1 id="boardTitle"></h1>
+      </header>
+
+      <div id="threads">
+        <span id="threadsCount"></span> Threads
+      </div>
+
+      <h3>
+        Threads
+      </h3>
+
+      <div id="deleteThreadModal">
+        <div id="deleteThreadFormContainer">
+          <button id="closeFormButton">
+            Close
+          </button>
+          <h4>
+            Delete thread
+          </h4>
+          <form id="deleteThreadForm" method="DELETE">
+            <input type="text" name="delete_password" placeholder="delete password" required>
+            <input type="hidden" name="thread_id">
+            <input type="submit" value="Confirm Delete">
+          </form>
+        </div>
+      </div>
+
+      <div id="threadsList">
+
+      </div>
+
+      <div id="newThreadFormContainer">
+        <h4>
+          New Thread
+        </h4>
+        <form id="newThreadForm" method="POST">
+          <textarea id="inputThreadText" type="text" name="text" placeholder="thread text..." required></textarea>
+          <input type="text" name="delete_password" placeholder="delete password" required>
+          <input id="newThreadFormSubmitBtn" type="submit" value="POST"/>
+        </form>
+      </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"
+            integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
+            crossorigin="anonymous"></script>
+
+    <script src="/public/board.js"></script>
+  </body>
+</html>
